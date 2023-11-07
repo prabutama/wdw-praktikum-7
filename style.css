@@ -1,0 +1,78 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+h1 {
+    position: relative;
+    z-index: 6;
+}
+
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    visibility: hidden;
+    display: none;
+}
+
+.check {
+    border: 3px solid lightgray;
+    position: relative;
+    display: block;
+    width: 300px;
+    height: 100px;
+    background-image: url(img/siang.png);
+    background-size:cover;
+    cursor: pointer;
+    border-radius: 50px;
+    overflow: hidden;
+    transition: ease-in 0.5s;
+
+
+}
+
+input[type="checkbox"]:checked ~ .check {
+    background : url(img/malam.png);
+    background-size: cover;
+    box-shadow: 0 0 0 1200px #092c3e;
+}
+
+.check::before {
+    content: '';
+    position: absolute;
+    top: 9px;
+    left: 9px;
+    background: #EACA53;
+    box-shadow: 0px 0px 10px 2px rgba(255, 234, 0, 0.71);
+    width: 80px;
+    height: 80px;
+    border-radius: 50px;
+    transition: 0.5s;
+}
+
+input[type="checkbox"]:checked ~ .check::before {
+    transform: translateX(-100px);
+}
+
+
+.check::after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    top: 9px;
+    right: 9px;
+    background: url(img/moon.png);
+    background-size: cover;
+    box-shadow: 0px 0px 10px 1px rgba(255, 255, 255);
+    width: 80px;
+    height: 80px;
+    border-radius: 50px;
+    transition: 0.5s;
+    transform:translateX(50px);
+}
+
+input[type="checkbox"]:checked ~ .check::after {
+    transform: translateX(0px);
+    z-index: 3;
+}
